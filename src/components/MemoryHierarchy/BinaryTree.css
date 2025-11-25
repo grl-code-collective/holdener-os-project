@@ -1,0 +1,67 @@
+.tree {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.tree-node {
+  position: relative;
+  padding: 20px;
+  text-align: center;
+}
+
+.node-label {
+  background-color: #4caf50;
+  color: white;
+  padding: 15px;
+  border-radius: 50%;
+  border: 2px solid #000;
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.node-children {
+  margin-top: 40px;
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+
+.tree-node::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 2px;
+  height: 20px;
+  background-color: #000;
+}
+
+.node-children::before,
+.node-children::after {
+  content: '';
+  position: absolute;
+  top: -20px;
+  width: 50%;
+  height: 20px;
+  border-top: 2px solid #000;
+}
+
+.node-children::before {
+  left: 0;
+  border-right: 2px solid #000;
+}
+
+.node-children::after {
+  right: 0;
+  border-left: 2px solid #000;
+}
+
+/* Prevent lines for root node */
+.tree-node:first-child::after {
+  display: none;
+}
